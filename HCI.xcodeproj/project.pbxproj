@@ -148,6 +148,8 @@
 				42B227642420EDC7004F3217 /* Frameworks */,
 				42B227652420EDC7004F3217 /* Resources */,
 				CB96DB8D99EB8997225D2342 /* [CP] Embed Pods Frameworks */,
+				428E810224211BFA007FCB8D /* Swiftlint Run Script */,
+				428E810324211C19007FCB8D /* Bump Up Build Number Script */,
 			);
 			buildRules = (
 			);
@@ -204,6 +206,42 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		428E810224211BFA007FCB8D /* Swiftlint Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swiftlint Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		428E810324211C19007FCB8D /* Bump Up Build Number Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Bump Up Build Number Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "BUILDNUM=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nNEWBUILDNUM=$(($BUILDNUM + 1))\nNEWBUILDNUMSTRING=`echo $NEWBUILDNUM`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $NEWBUILDNUMSTRING\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n\n";
+		};
 		9BC2C80830DE9BE9523FDF62 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

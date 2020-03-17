@@ -14,7 +14,4 @@ class HCMainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .gray
     }
-
-
 }
-
