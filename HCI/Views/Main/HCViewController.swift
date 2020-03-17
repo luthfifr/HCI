@@ -41,6 +41,7 @@ extension HCMainViewController {
             tableView.allowsMultipleSelection = false
             tableView.translatesAutoresizingMaskIntoConstraints = false
             tableView.tableFooterView = UIView()
+            tableView.separatorStyle = .none
             tableView.dataSource = self
             tableView.delegate = self
 
