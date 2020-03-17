@@ -12,7 +12,7 @@ class HCMainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .gray
     }
 
 
