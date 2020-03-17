@@ -23,7 +23,7 @@ class HCMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Home Credit Indonesia"
-        view.backgroundColor = UIColor(red: 248, green: 248, blue: 248, alpha: 1.0)
+        view.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1.0)
         setupViews()
     }
 }
@@ -66,7 +66,14 @@ extension HCMainViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 0
+        default:
+            return 0
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -99,6 +106,9 @@ extension HCMainViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension HCMainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //codes here
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //codes here
     }

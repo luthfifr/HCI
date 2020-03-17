@@ -16,6 +16,10 @@ class HCBlogTableViewCell: UITableViewCell {
     private var titleLabel: UILabel!
 
     // MARK: - Initialization
+    convenience init() {
+        self.init()
+        setupViews()
+    }
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -23,6 +27,7 @@ class HCBlogTableViewCell: UITableViewCell {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        setupViews()
     }
 
     // MARK: - Setup methods
@@ -30,7 +35,7 @@ class HCBlogTableViewCell: UITableViewCell {
         setupTitleView()
         setupTitleLabel()
     }
-    
+
     private func setupTitleView() {
         if titleView == nil {
             titleView = UIView(frame: .zero)
@@ -74,7 +79,10 @@ class HCBlogTableViewCell: UITableViewCell {
 // MARK: - Public methods
 extension HCBlogTableViewCell {
     func setData() {
-        imageView?.sd_setHighlightedImage(with: nil, options: [.highPriority, .waitStoreCache, .continueInBackground], completed: nil)
-        titleLabel.text = String()
+        imageView?.sd_setImage(with: nil,
+                               placeholderImage: nil,
+                               options: [.highPriority, .waitStoreCache, .continueInBackground],
+                               context: nil)
+        titleLabel.text = "Article title"
     }
 }
