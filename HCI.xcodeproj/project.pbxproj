@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		428E810524211E77007FCB8D /* HCProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428E810424211E77007FCB8D /* HCProductTableViewCell.swift */; };
+		428E810724211E89007FCB8D /* HCBlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428E810624211E89007FCB8D /* HCBlogTableViewCell.swift */; };
+		428E810A24212384007FCB8D /* HCMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428E810924212384007FCB8D /* HCMainViewModel.swift */; };
 		42B2276B2420EDC7004F3217 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B2276A2420EDC7004F3217 /* AppDelegate.swift */; };
 		42B2276D2420EDC7004F3217 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B2276C2420EDC7004F3217 /* SceneDelegate.swift */; };
 		42B2276F2420EDC7004F3217 /* HCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B2276E2420EDC7004F3217 /* HCViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		428E810424211E77007FCB8D /* HCProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCProductTableViewCell.swift; sourceTree = "<group>"; };
+		428E810624211E89007FCB8D /* HCBlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBlogTableViewCell.swift; sourceTree = "<group>"; };
+		428E810924212384007FCB8D /* HCMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCMainViewModel.swift; sourceTree = "<group>"; };
 		42B227672420EDC7004F3217 /* HCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B2276A2420EDC7004F3217 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42B2276C2420EDC7004F3217 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +50,16 @@
 			isa = PBXGroup;
 			children = (
 				42B2276E2420EDC7004F3217 /* HCViewController.swift */,
+				428E810424211E77007FCB8D /* HCProductTableViewCell.swift */,
+				428E810624211E89007FCB8D /* HCBlogTableViewCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		428E810824212372007FCB8D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				428E810924212384007FCB8D /* HCMainViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -107,6 +123,7 @@
 		42B22781242115B3004F3217 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				428E810824212372007FCB8D /* Main */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -288,8 +305,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				428E810724211E89007FCB8D /* HCBlogTableViewCell.swift in Sources */,
 				42B2276F2420EDC7004F3217 /* HCViewController.swift in Sources */,
+				428E810A24212384007FCB8D /* HCMainViewModel.swift in Sources */,
 				42B2276B2420EDC7004F3217 /* AppDelegate.swift in Sources */,
+				428E810524211E77007FCB8D /* HCProductTableViewCell.swift in Sources */,
 				42B2276D2420EDC7004F3217 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
