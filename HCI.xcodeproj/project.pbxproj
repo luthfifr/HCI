@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -40,6 +40,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		428E810124211BAB007FCB8D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				42B2276E2420EDC7004F3217 /* HCViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		42B2275E2420EDC7004F3217 = {
 			isa = PBXGroup;
 			children = (
@@ -63,7 +71,6 @@
 			children = (
 				42B227782420EDC9004F3217 /* Info.plist */,
 				42B2276A2420EDC7004F3217 /* AppDelegate.swift */,
-				42B2276E2420EDC7004F3217 /* HCViewController.swift */,
 				42B2276C2420EDC7004F3217 /* SceneDelegate.swift */,
 				42B227732420EDC9004F3217 /* Assets.xcassets */,
 				42B2277E24211525004F3217 /* Common */,
@@ -107,6 +114,7 @@
 		42B22782242115BA004F3217 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				428E810124211BAB007FCB8D /* Main */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -125,7 +133,6 @@
 				6C7090576FDEF1BAE4B321F7 /* Pods-HCI.debug.xcconfig */,
 				A4052A998BBDA8EC05BE1DA5 /* Pods-HCI.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
