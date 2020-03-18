@@ -233,11 +233,18 @@ extension HCMainViewController: UITableViewDelegate {
                 }
                 return section == "articles"
             }),
-            let items = blogSectionData.items else {
+            let items = blogSectionData.items,
+            let strURL = items[indexPath.row].link,
+            let url = URL(string: strURL) else {
             return
         }
         #if DEBUG
-        print("selected URL: \(items[indexPath.row].link ?? String())")
+        print("selected URL: \(strURL)")
         #endif
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url,
+                                      options: [:],
+                                      completionHandler: nil)
+        }
     }
 }

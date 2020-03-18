@@ -141,10 +141,17 @@ extension HCProductTableViewCell: UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let data = productData?.items?[indexPath.item] else { return }
+        guard let data = productData?.items?[indexPath.item],
+            let strURL = data.link,
+            let url = URL(string: strURL) else { return }
         #if DEBUG
-        print("selected URL: \(data.link ?? String())")
+        print("selected URL: \(strURL)")
         #endif
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url,
+                                      options: [:],
+                                      completionHandler: nil)
+        }
     }
 }
 
