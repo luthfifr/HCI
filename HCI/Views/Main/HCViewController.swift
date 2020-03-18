@@ -19,6 +19,7 @@ class HCMainViewController: UIViewController {
     typealias BlogTVC = HCBlogTableViewCell
 
     private var tableView: UITableView!
+    private var loadingView: HCLoadingView!
 
     private let prodSectionCellID = String(describing: ProductTVC.self)
     private let blogSectionCellID = String(describing: BlogTVC.self)
@@ -42,18 +43,10 @@ class HCMainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let label = UILabel()
-        label.textColor = UIColor.white
-        label.text = Constants.title
-        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
-        #if DEBUG
-        let rightBarButtonItem = UIBarButtonItem(title: "Reload",
-                                                 style: .plain,
-                                                 target: self,
-                                                 action: #selector(callService))
-        navigationItem.rightBarButtonItem = rightBarButtonItem
-        #endif
+
         view.backgroundColor = Constants.backgroundColor
+
+        setupNavigationItems()
         setupViews()
         setupEvents()
         callService()
@@ -63,11 +56,16 @@ class HCMainViewController: UIViewController {
 // MARK: - Private methods
 extension HCMainViewController {
     @objc private func callService() {
+        showHideLoadingView(true)
         viewModel.viewModelEvents.onNext(.getData)
     }
+
     private func setupEvents() {
         viewModel.uiEvents.subscribe(onNext: { [weak self] event in
             guard let `self` = self else { return }
+
+            self.showHideLoadingView(false)
+
             switch event {
             case .getDataSuccess:
                 self.dataModel = self.viewModel.responseModel
@@ -81,9 +79,50 @@ extension HCMainViewController {
         }).disposed(by: disposeBag)
     }
 
+    private func setupNavigationItems() {
+        let label = UILabel()
+        label.textColor = UIColor.white
+        label.text = Constants.title
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
+        #if DEBUG
+        let rightBarButtonItem = UIBarButtonItem(title: "Reload",
+                                                 style: .plain,
+                                                 target: self,
+                                                 action: #selector(callService))
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+        #endif
+    }
+
     private func setupViews() {
+        setupLoadingView()
         setupTableView()
         setupToast()
+    }
+
+    private func setupLoadingView() {
+        if loadingView == nil {
+            loadingView = HCLoadingView(frame: .zero)
+            loadingView.titleText = Constants.loadingMessage
+
+            if !view.subviews.contains(loadingView) {
+                view.addSubview(loadingView)
+            }
+
+            loadingView.snp.makeConstraints({ make in
+                make.edges.equalToSuperview()
+            })
+        }
+    }
+
+    private func showHideLoadingView(_ isShown: Bool) {
+        loadingView.animateSpinning(isShown)
+        if isShown {
+            view.bringSubviewToFront(loadingView)
+        } else {
+            view.sendSubviewToBack(loadingView)
+        }
+
+        loadingView.isHidden = !isShown
     }
 
     private func setupTableView() {

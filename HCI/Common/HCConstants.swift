@@ -23,6 +23,7 @@ struct HCConstants {
         static let artileTitleDefaultValue = "Article title"
         static let productNameDefaultValue = "Product Name"
         static let offlineModeMessage = "No Network. Offline mode activated."
+        static let loadingMessage = "Loading Data from Server..."
     }
 
     struct Service {
