@@ -7,7 +7,8 @@
 //
 
 import XCTest
-
+import Quick
+import Nimble
 class HCIUnitTests: XCTestCase {
 
     override func setUp() {
