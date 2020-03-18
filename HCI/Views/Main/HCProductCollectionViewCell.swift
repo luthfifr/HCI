@@ -34,9 +34,9 @@ class HCProductCollectionViewCell: UICollectionViewCell {
 // MARK: - Public methods
 extension HCProductCollectionViewCell {
     func setData(with data: HCMainDataModel.HCItemsDataModel) {
-        let productName = data.name ?? "Product Name"
+        let productName = data.productName ?? "Product Name"
         label.text = productName.replacingOccurrences(of: " ", with: "\n")
-        imgView.sd_setImage(with: URL(string: data.image ?? String())) { [weak self] image, error, _, _ in
+        imgView.sd_setImage(with: URL(string: data.productImage ?? String())) { [weak self] image, error, _, _ in
             guard let `self` = self else { return }
             if let error = error {
                 #if DEBUG

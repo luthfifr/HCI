@@ -24,19 +24,21 @@ struct HCMainDataModel: HandyJSON {
     }
 
     struct HCItemsDataModel: HandyJSON {
-        var name: String?
-        var image: String?
+        var articleTitle: String?
+        var articleImage: String?
+        var productName: String?
+        var productImage: String?
         var link: String?
 
         mutating func mapping(mapper: HelpingMapper) {
             mapper <<<
-                self.name <-- "article_title"
+                self.articleTitle <-- "article_title"
             mapper <<<
-                self.name <-- "product_name"
+                self.articleImage <-- "article_image"
             mapper <<<
-                self.image <-- "article_image"
+                self.productName <-- "product_name"
             mapper <<<
-                self.image <-- "product_image"
+                self.productImage <-- "product_image"
         }
     }
 }

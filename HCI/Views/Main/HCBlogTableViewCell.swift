@@ -89,7 +89,7 @@ class HCBlogTableViewCell: UITableViewCell {
     private func setupBannerImgView() {
         if bannerImgView == nil {
             bannerImgView = UIImageView(frame: .zero)
-            bannerImgView.contentMode = .scaleAspectFit
+            bannerImgView.contentMode = .scaleAspectFill
             bannerImgView.backgroundColor = .green
 
             if !roundedCornerView.subviews.contains(bannerImgView) {
@@ -136,7 +136,7 @@ class HCBlogTableViewCell: UITableViewCell {
             titleLabel.snp.makeConstraints({ make in
                 make.top.bottom.equalToSuperview()
                 make.leading.equalTo(titleView.snp.leading).offset(16)
-                make.trailing.equalTo(titleView.snp.trailing).offset(16)
+                make.trailing.equalTo(titleView.snp.trailing).offset(-16)
             })
         }
     }
@@ -145,10 +145,22 @@ class HCBlogTableViewCell: UITableViewCell {
 // MARK: - Public methods
 extension HCBlogTableViewCell {
     func setData(with data: HCMainDataModel.HCItemsDataModel) {
-        bannerImgView.sd_setImage(with: URL(string: data.image ?? String()),
+        bannerImgView.sd_setImage(with: URL(string: data.articleImage ?? String()),
                                placeholderImage: nil,
                                options: [.highPriority, .waitStoreCache, .continueInBackground],
                                context: nil)
-        titleLabel.text = data.name ?? "Article title"
+        bannerImgView.sd_setImage(with: URL(string: data.articleImage ?? String())) { [weak self] image, error, _, _ in
+            guard let `self` = self else { return }
+            if let error = error {
+                #if DEBUG
+                print("download article image error: \(error.localizedDescription)")
+                #endif
+            }
+
+            if image == nil {
+                self.bannerImgView.image = UIImage(named: "banner-hci")
+            }
+        }
+        titleLabel.text = data.articleTitle ?? "Article title"
     }
 }
