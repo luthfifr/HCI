@@ -145,10 +145,6 @@ class HCBlogTableViewCell: UITableViewCell {
 // MARK: - Public methods
 extension HCBlogTableViewCell {
     func setData(with data: HCMainDataModel.HCItemsDataModel) {
-        bannerImgView.sd_setImage(with: URL(string: data.articleImage ?? String()),
-                               placeholderImage: nil,
-                               options: [.highPriority, .waitStoreCache, .continueInBackground],
-                               context: nil)
         bannerImgView.sd_setImage(with: URL(string: data.articleImage ?? String())) { [weak self] image, error, _, _ in
             guard let `self` = self else { return }
             if let error = error {

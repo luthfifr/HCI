@@ -13,7 +13,7 @@ import RxOptional
 
 final class HCReachability {
     private let reachability = Reachability()
-    private var reachabilityStatus: Reachability.Connection = .wifi
+    private var reachabilityStatus: Reachability.Connection = .cellular
     private let disposeBag = DisposeBag()
 
     static let shared = HCReachability()
@@ -56,10 +56,4 @@ final class HCReachability {
 
         reachabilityStatus = reachability.connection
     }
-
-    func getReachablityStatus() -> Reachability.Connection {
-        return reachabilityStatus
-    }
-
-    private init() { }
 }

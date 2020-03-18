@@ -16,8 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
         UINavigationBar.appearance().barTintColor = Constants.barTintColor
         UINavigationBar.appearance().titleTextAttributes = Constants.titleColor
+
+        HCReachability.shared.startMonitoring()
+
         if #available(iOS 13, *) {
             //skip anything here if iOS v13 or later
         } else {
@@ -31,12 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         HCReachability.shared.stopMonitoring()
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        HCReachability.shared.startMonitoring()
     }
 }
 

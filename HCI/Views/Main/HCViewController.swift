@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import SnapKit
+import Toast_Swift
 
 class HCMainViewController: UIViewController {
     typealias Constants = HCConstants.MainVC
@@ -45,21 +46,34 @@ class HCMainViewController: UIViewController {
         label.textColor = UIColor.white
         label.text = Constants.title
         navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
+        #if DEBUG
+        let rightBarButtonItem = UIBarButtonItem(title: "Reload",
+                                                 style: .plain,
+                                                 target: self,
+                                                 action: #selector(callService))
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+        #endif
         view.backgroundColor = Constants.backgroundColor
         setupViews()
         setupEvents()
-        viewModel.viewModelEvents.onNext(.getData)
+        callService()
     }
 }
 
 // MARK: - Private methods
 extension HCMainViewController {
+    @objc private func callService() {
+        viewModel.viewModelEvents.onNext(.getData)
+    }
     private func setupEvents() {
         viewModel.uiEvents.subscribe(onNext: { [weak self] event in
             guard let `self` = self else { return }
             switch event {
             case .getDataSuccess:
                 self.dataModel = self.viewModel.responseModel
+                if !self.viewModel.isOnline {
+                    self.showToast(with: Constants.offlineModeMessage)
+                }
             case .getDataFailure: break
             default: break
             }
@@ -68,6 +82,7 @@ extension HCMainViewController {
 
     private func setupViews() {
         setupTableView()
+        setupToast()
     }
 
     private func setupTableView() {
@@ -93,12 +108,22 @@ extension HCMainViewController {
             })
         }
     }
+
+    private func setupToast() {
+        let toastManager = ToastManager.shared
+        toastManager.position = .bottom
+        toastManager.duration = 1
+    }
+
+    private func showToast(with message: String) {
+        view.makeToast(message)
+    }
 }
 
 // MARK: - UITableViewDataSource
 extension HCMainViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return dataModel != nil ? 2 : 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

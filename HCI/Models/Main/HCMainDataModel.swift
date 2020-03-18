@@ -8,8 +8,13 @@
 
 import Foundation
 import HandyJSON
+import Moya
 
 struct HCMainDataModel: HandyJSON {
+    var responseString: String?
+    var status: HCResponseStatus
+    var moyaError: MoyaError?
+
     var data: [HCSectionDataModel]?
 
     struct HCSectionDataModel: HandyJSON {
@@ -40,5 +45,11 @@ struct HCMainDataModel: HandyJSON {
             mapper <<<
                 self.productImage <-- "product_image"
         }
+    }
+
+    init() {
+        status = .failure
+        moyaError = nil
+        responseString = nil
     }
 }

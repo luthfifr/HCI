@@ -27,6 +27,8 @@
 		42B7AEF424226A7A00489C46 /* HCNetworkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEF324226A7A00489C46 /* HCNetworkEvent.swift */; };
 		42B7AEF724226B2A00489C46 /* HCServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEF624226B2A00489C46 /* HCServiceError.swift */; };
 		42B7AEF924226C9300489C46 /* Extension+MoyaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEF824226C9300489C46 /* Extension+MoyaResponse.swift */; };
+		42B7AEFB24226DE700489C46 /* HCMainTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEFA24226DE700489C46 /* HCMainTarget.swift */; };
+		42B7AEFD24226DF600489C46 /* HCMainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEFC24226DF600489C46 /* HCMainService.swift */; };
 		798726A7440AABD86CD0D55C /* Pods_HCI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677A675A7B87FAC4AC1774ED /* Pods_HCI.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		42B7AEF324226A7A00489C46 /* HCNetworkEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCNetworkEvent.swift; sourceTree = "<group>"; };
 		42B7AEF624226B2A00489C46 /* HCServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCServiceError.swift; sourceTree = "<group>"; };
 		42B7AEF824226C9300489C46 /* Extension+MoyaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+MoyaResponse.swift"; sourceTree = "<group>"; };
+		42B7AEFA24226DE700489C46 /* HCMainTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCMainTarget.swift; sourceTree = "<group>"; };
+		42B7AEFC24226DF600489C46 /* HCMainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCMainService.swift; sourceTree = "<group>"; };
 		677A675A7B87FAC4AC1774ED /* Pods_HCI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HCI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7090576FDEF1BAE4B321F7 /* Pods-HCI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCI.debug.xcconfig"; path = "Target Support Files/Pods-HCI/Pods-HCI.debug.xcconfig"; sourceTree = "<group>"; };
 		A4052A998BBDA8EC05BE1DA5 /* Pods-HCI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCI.release.xcconfig"; path = "Target Support Files/Pods-HCI/Pods-HCI.release.xcconfig"; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 			children = (
 				42B7AEF124226A2000489C46 /* HCMoyaProvider.swift */,
 				42B7AEF324226A7A00489C46 /* HCNetworkEvent.swift */,
+				42B7AEFA24226DE700489C46 /* HCMainTarget.swift */,
+				42B7AEFC24226DF600489C46 /* HCMainService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -441,9 +447,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				42B7AEF924226C9300489C46 /* Extension+MoyaResponse.swift in Sources */,
+				42B7AEFD24226DF600489C46 /* HCMainService.swift in Sources */,
 				428E810724211E89007FCB8D /* HCBlogTableViewCell.swift in Sources */,
 				42B2276F2420EDC7004F3217 /* HCViewController.swift in Sources */,
 				42B7AEED242250EA00489C46 /* HCConstants.swift in Sources */,
+				42B7AEFB24226DE700489C46 /* HCMainTarget.swift in Sources */,
 				42B7AEF724226B2A00489C46 /* HCServiceError.swift in Sources */,
 				42B7AEEA2421D7ED00489C46 /* HCSampleLoader.swift in Sources */,
 				42B2276B2420EDC7004F3217 /* AppDelegate.swift in Sources */,

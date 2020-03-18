@@ -22,5 +22,12 @@ struct HCConstants {
         static let productSectionRawValue = "products"
         static let artileTitleDefaultValue = "Article title"
         static let productNameDefaultValue = "Product Name"
+        static let offlineModeMessage = "No Network. Offline mode activated."
+    }
+
+    struct Service {
+        static let domain = "https://private-a8e48-hcidtest.apiary-mock.com"
+        static let path = "/home"
+        static let responseMockFileName = "home-response"
     }
 }
