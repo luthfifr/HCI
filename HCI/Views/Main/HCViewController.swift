@@ -11,6 +11,7 @@ import RxSwift
 import SnapKit
 
 class HCMainViewController: UIViewController {
+    private let disposeBag = DisposeBag()
 
     typealias ProductTVC = HCProductTableViewCell
     typealias BlogTVC = HCBlogTableViewCell
@@ -19,17 +20,40 @@ class HCMainViewController: UIViewController {
 
     private let prodSectionCellID = String(describing: ProductTVC.self)
     private let blogSectionCellID = String(describing: BlogTVC.self)
+    
+    private var viewModel: HCMainViewModel!
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        viewModel = HCMainViewModel()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        viewModel = HCMainViewModel()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Home Credit Indonesia"
         view.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1.0)
         setupViews()
+        setupEvents()
     }
 }
 
 // MARK: - Private methods
 extension HCMainViewController {
+    private func setupEvents() {
+        viewModel.uiEvents.subscribe(onNext: { event in
+            switch event {
+            case .getDataSuccess: break
+            case .getDataFailure: break
+            default: break
+            }
+        }).disposed(by: disposeBag)
+    }
+    
     private func setupViews() {
         setupTableView()
     }
@@ -77,7 +101,14 @@ extension HCMainViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 363
+        switch indexPath.section {
+        case 0:
+            return 300
+        case 1:
+            return 200
+        default:
+            return 0
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,7 +138,18 @@ extension HCMainViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension HCMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        //codes here
+        switch indexPath.section {
+        case 0:
+            guard let cell = cell as? ProductTVC else {
+                return
+            }
+        case 1:
+            guard let cell = cell as? BlogTVC else {
+                return
+            }
+        default:
+            return
+        }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //codes here
