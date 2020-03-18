@@ -11,6 +11,7 @@ import SnapKit
 import SDWebImage
 
 class HCBlogTableViewCell: UITableViewCell {
+    typealias Constants = HCConstants.MainVC
 
     private var titleView: UIView!
     private var titleLabel: UILabel!
@@ -46,7 +47,6 @@ class HCBlogTableViewCell: UITableViewCell {
         if containerView == nil {
             containerView = UIView(frame: .zero)
             containerView.backgroundColor = .white
-            containerView.layer.cornerRadius = 5
             containerView.layer.shadowColor = UIColor.black.cgColor
             containerView.layer.shadowOpacity = 0.3
             containerView.layer.shadowOffset = CGSize(width: 0, height: 8)
@@ -161,6 +161,6 @@ extension HCBlogTableViewCell {
                 self.bannerImgView.image = UIImage(named: "banner-hci")
             }
         }
-        titleLabel.text = data.articleTitle ?? "Article title"
+        titleLabel.text = data.articleTitle ?? Constants.artileTitleDefaultValue
     }
 }

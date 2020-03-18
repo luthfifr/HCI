@@ -10,6 +10,8 @@ import UIKit
 import SDWebImage
 
 class HCProductCollectionViewCell: UICollectionViewCell {
+    typealias Constants = HCConstants.MainVC
+
     private var stackView: UIStackView!
     private var imgView: UIImageView!
     private var label: UILabel!
@@ -34,7 +36,7 @@ class HCProductCollectionViewCell: UICollectionViewCell {
 // MARK: - Public methods
 extension HCProductCollectionViewCell {
     func setData(with data: HCMainDataModel.HCItemsDataModel) {
-        let productName = data.productName ?? "Product Name"
+        let productName = data.productName ?? Constants.productNameDefaultValue
         label.text = productName.replacingOccurrences(of: " ", with: "\n")
         imgView.sd_setImage(with: URL(string: data.productImage ?? String())) { [weak self] image, error, _, _ in
             guard let `self` = self else { return }
@@ -111,7 +113,7 @@ extension HCProductCollectionViewCell {
             label.font = UIFont.systemFont(ofSize: 12)
             label.textColor = .black
             label.textAlignment = .center
-            label.text = "Product"
+            label.text = Constants.productNameDefaultValue
         }
     }
 }

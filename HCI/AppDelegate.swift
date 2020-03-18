@@ -11,12 +11,13 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    typealias Constants = HCConstants.TabBar
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UINavigationBar.appearance().barTintColor = UIColor(red: 83/255, green: 186/255, blue: 210/255, alpha: 1.0)
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().barTintColor = Constants.barTintColor
+        UINavigationBar.appearance().titleTextAttributes = Constants.titleColor
         if #available(iOS 13, *) {
             //skip anything here if iOS v13 or later
         } else {

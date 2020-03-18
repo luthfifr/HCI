@@ -11,6 +11,7 @@ import RxSwift
 import SnapKit
 
 class HCMainViewController: UIViewController {
+    typealias Constants = HCConstants.MainVC
     private let disposeBag = DisposeBag()
 
     typealias ProductTVC = HCProductTableViewCell
@@ -40,8 +41,11 @@ class HCMainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Home Credit Indonesia"
-        view.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1.0)
+        let label = UILabel()
+        label.textColor = UIColor.white
+        label.text = Constants.title
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
+        view.backgroundColor = Constants.backgroundColor
         setupViews()
         setupEvents()
         viewModel.viewModelEvents.onNext(.getData)
@@ -108,7 +112,7 @@ extension HCMainViewController: UITableViewDataSource {
                     guard let section = $0.section else {
                         return false
                     }
-                    return section == "articles"
+                    return section == Constants.articleSectionRawValue
                 }), let items = blogSectionData.items else {
                 return 0
             }
@@ -141,7 +145,7 @@ extension HCMainViewController: UITableViewDataSource {
                     guard let section = $0.section else {
                         return false
                     }
-                    return section == "articles"
+                    return section == Constants.articleSectionRawValue
                 }) else {
                 return nil
             }
@@ -200,7 +204,7 @@ extension HCMainViewController: UITableViewDelegate {
                     guard let section = $0.section else {
                         return false
                     }
-                    return section == "products"
+                    return section == Constants.productSectionRawValue
                 }) else {
                 return
             }
@@ -213,7 +217,7 @@ extension HCMainViewController: UITableViewDelegate {
                     guard let section = $0.section else {
                         return false
                     }
-                    return section == "articles"
+                    return section == Constants.articleSectionRawValue
                 }),
                 let items = blogSectionData.items else {
                 return
@@ -231,7 +235,7 @@ extension HCMainViewController: UITableViewDelegate {
                 guard let section = $0.section else {
                     return false
                 }
-                return section == "articles"
+                return section == Constants.articleSectionRawValue
             }),
             let items = blogSectionData.items,
             let strURL = items[indexPath.row].link,
