@@ -16,6 +16,7 @@ class HCBlogTableViewCell: UITableViewCell {
     private var titleLabel: UILabel!
     private var bannerImgView: UIImageView!
     private var containerView: UIView!
+    private var roundedCornerView: UIView!
 
     // MARK: - Initialization
     convenience init() {
@@ -35,6 +36,7 @@ class HCBlogTableViewCell: UITableViewCell {
     // MARK: - Setup methods
     private func setupViews() {
         setupContainerView()
+        setupRoundedCornerView()
         setupBannerImgView()
         setupTitleView()
         setupTitleLabel()
@@ -44,6 +46,7 @@ class HCBlogTableViewCell: UITableViewCell {
         if containerView == nil {
             containerView = UIView(frame: .zero)
             containerView.backgroundColor = .white
+            containerView.layer.cornerRadius = 5
             containerView.layer.shadowColor = UIColor.black.cgColor
             containerView.layer.shadowOpacity = 0.3
             containerView.layer.shadowOffset = CGSize(width: 0, height: 8)
@@ -66,14 +69,31 @@ class HCBlogTableViewCell: UITableViewCell {
         }
     }
 
+    private func setupRoundedCornerView() {
+        if roundedCornerView == nil {
+            roundedCornerView = UIView(frame: .zero)
+            roundedCornerView.backgroundColor = .white
+            roundedCornerView.layer.cornerRadius = 5
+            roundedCornerView.layer.masksToBounds = true
+
+            if !containerView.subviews.contains(roundedCornerView) {
+                containerView.addSubview(roundedCornerView)
+            }
+
+            roundedCornerView.snp.makeConstraints({ make in
+                make.edges.equalToSuperview()
+            })
+        }
+    }
+
     private func setupBannerImgView() {
         if bannerImgView == nil {
             bannerImgView = UIImageView(frame: .zero)
             bannerImgView.contentMode = .scaleAspectFit
             bannerImgView.backgroundColor = .green
 
-            if !containerView.subviews.contains(bannerImgView) {
-                containerView.addSubview(bannerImgView)
+            if !roundedCornerView.subviews.contains(bannerImgView) {
+                roundedCornerView.addSubview(bannerImgView)
             }
 
             bannerImgView.snp.makeConstraints({ make in
@@ -88,8 +108,8 @@ class HCBlogTableViewCell: UITableViewCell {
             titleView.translatesAutoresizingMaskIntoConstraints = false
             titleView.backgroundColor = .white
 
-            if !containerView.subviews.contains(titleView) {
-                containerView.addSubview(titleView)
+            if !roundedCornerView.subviews.contains(titleView) {
+                roundedCornerView.addSubview(titleView)
             }
 
             titleView.snp.makeConstraints({ make in
