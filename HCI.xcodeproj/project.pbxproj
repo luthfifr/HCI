@@ -29,6 +29,8 @@
 		42B7AEF924226C9300489C46 /* Extension+MoyaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEF824226C9300489C46 /* Extension+MoyaResponse.swift */; };
 		42B7AEFB24226DE700489C46 /* HCMainTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEFA24226DE700489C46 /* HCMainTarget.swift */; };
 		42B7AEFD24226DF600489C46 /* HCMainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEFC24226DF600489C46 /* HCMainService.swift */; };
+		42B7AF00242282AF00489C46 /* UIAlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEFF242282AF00489C46 /* UIAlertModel.swift */; };
+		42B7AF02242282E900489C46 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AF01242282E900489C46 /* Extension+UIViewController.swift */; };
 		798726A7440AABD86CD0D55C /* Pods_HCI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677A675A7B87FAC4AC1774ED /* Pods_HCI.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +70,8 @@
 		42B7AEF824226C9300489C46 /* Extension+MoyaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+MoyaResponse.swift"; sourceTree = "<group>"; };
 		42B7AEFA24226DE700489C46 /* HCMainTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCMainTarget.swift; sourceTree = "<group>"; };
 		42B7AEFC24226DF600489C46 /* HCMainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCMainService.swift; sourceTree = "<group>"; };
+		42B7AEFF242282AF00489C46 /* UIAlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertModel.swift; sourceTree = "<group>"; };
+		42B7AF01242282E900489C46 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		677A675A7B87FAC4AC1774ED /* Pods_HCI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HCI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7090576FDEF1BAE4B321F7 /* Pods-HCI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCI.debug.xcconfig"; path = "Target Support Files/Pods-HCI/Pods-HCI.debug.xcconfig"; sourceTree = "<group>"; };
 		A4052A998BBDA8EC05BE1DA5 /* Pods-HCI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCI.release.xcconfig"; path = "Target Support Files/Pods-HCI/Pods-HCI.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				42B7AEF824226C9300489C46 /* Extension+MoyaResponse.swift */,
+				42B7AF01242282E900489C46 /* Extension+UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 		42B22780242115AD004F3217 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				42B7AEFE2422829900489C46 /* UI */,
 				42B7AEF524226B0C00489C46 /* Error */,
 				428E8113242144C2007FCB8D /* Main */,
 			);
@@ -243,6 +249,14 @@
 				42B7AEF624226B2A00489C46 /* HCServiceError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		42B7AEFE2422829900489C46 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				42B7AEFF242282AF00489C46 /* UIAlertModel.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		50CE782D70C182D2D991C354 /* Frameworks */ = {
@@ -448,6 +462,8 @@
 			files = (
 				42B7AEF924226C9300489C46 /* Extension+MoyaResponse.swift in Sources */,
 				42B7AEFD24226DF600489C46 /* HCMainService.swift in Sources */,
+				42B7AF02242282E900489C46 /* Extension+UIViewController.swift in Sources */,
+				42B7AF00242282AF00489C46 /* UIAlertModel.swift in Sources */,
 				428E810724211E89007FCB8D /* HCBlogTableViewCell.swift in Sources */,
 				42B2276F2420EDC7004F3217 /* HCViewController.swift in Sources */,
 				42B7AEED242250EA00489C46 /* HCConstants.swift in Sources */,

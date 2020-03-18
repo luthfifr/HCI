@@ -74,7 +74,8 @@ extension HCMainViewController {
                 if !self.viewModel.isOnline {
                     self.showToast(with: Constants.offlineModeMessage)
                 }
-            case .getDataFailure: break
+            case .getDataFailure(let error):
+                self.showError(error)
             default: break
             }
         }).disposed(by: disposeBag)
@@ -117,6 +118,23 @@ extension HCMainViewController {
 
     private func showToast(with message: String) {
         view.makeToast(message)
+    }
+
+    private func showError(_ error: HCServiceError?) {
+        var alertModel = UIAlertModel(style: .alert)
+        guard let error = error else {
+            return
+        }
+        alertModel.message = error.responseString ?? String()
+        alertModel.title = "Request Data Failure"
+        alertModel.actions = [UIAlertActionModel(title: "OK", style: .cancel)]
+        self.showAlert(with: alertModel)
+            .asObservable()
+            .subscribe(onNext: { selectedActionIdx in
+                #if DEBUG
+                print("alert action index = \(selectedActionIdx)")
+                #endif
+            }).disposed(by: self.disposeBag)
     }
 }
 
