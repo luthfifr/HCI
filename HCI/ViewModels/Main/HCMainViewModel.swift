@@ -62,11 +62,14 @@ extension HCMainViewModel {
     }
 
     private func getData() {
-        //for development purpose
-        let responseData = HCSampleLoader.loadResponse(file: "home-response")
-        if let responseStr = String(data: responseData, encoding: .utf8),
-            let model = HCMainDataModel.deserialize(from: responseStr) {
-            self.responseModel = model
+        if HCReachability.shared.isNetworkAvailable {
+            
+        } else {
+            let responseData = HCSampleLoader.loadResponse(file: "home-response")
+            if let responseStr = String(data: responseData, encoding: .utf8),
+                let model = HCMainDataModel.deserialize(from: responseStr) {
+                self.responseModel = model
+            }
         }
     }
 }

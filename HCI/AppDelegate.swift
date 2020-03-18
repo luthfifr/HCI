@@ -30,11 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
-    
+
     func applicationWillEnterForeground(_ application: UIApplication) {
         HCReachability.shared.stopMonitoring()
     }
-    
+
     func applicationDidBecomeActive(_ application: UIApplication) {
         HCReachability.shared.startMonitoring()
     }

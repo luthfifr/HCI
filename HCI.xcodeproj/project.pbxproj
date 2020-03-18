@@ -23,6 +23,10 @@
 		42B7AEEB2421F1FF00489C46 /* home-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 42B7AEE62421D0F400489C46 /* home-response.json */; };
 		42B7AEED242250EA00489C46 /* HCConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEEC242250EA00489C46 /* HCConstants.swift */; };
 		42B7AEEF242265E100489C46 /* HCReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEEE242265E100489C46 /* HCReachability.swift */; };
+		42B7AEF224226A2000489C46 /* HCMoyaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEF124226A2000489C46 /* HCMoyaProvider.swift */; };
+		42B7AEF424226A7A00489C46 /* HCNetworkEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEF324226A7A00489C46 /* HCNetworkEvent.swift */; };
+		42B7AEF724226B2A00489C46 /* HCServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEF624226B2A00489C46 /* HCServiceError.swift */; };
+		42B7AEF924226C9300489C46 /* Extension+MoyaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEF824226C9300489C46 /* Extension+MoyaResponse.swift */; };
 		798726A7440AABD86CD0D55C /* Pods_HCI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677A675A7B87FAC4AC1774ED /* Pods_HCI.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +60,10 @@
 		42B7AEE92421D7ED00489C46 /* HCSampleLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSampleLoader.swift; sourceTree = "<group>"; };
 		42B7AEEC242250EA00489C46 /* HCConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCConstants.swift; sourceTree = "<group>"; };
 		42B7AEEE242265E100489C46 /* HCReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCReachability.swift; sourceTree = "<group>"; };
+		42B7AEF124226A2000489C46 /* HCMoyaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCMoyaProvider.swift; sourceTree = "<group>"; };
+		42B7AEF324226A7A00489C46 /* HCNetworkEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCNetworkEvent.swift; sourceTree = "<group>"; };
+		42B7AEF624226B2A00489C46 /* HCServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCServiceError.swift; sourceTree = "<group>"; };
+		42B7AEF824226C9300489C46 /* Extension+MoyaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+MoyaResponse.swift"; sourceTree = "<group>"; };
 		677A675A7B87FAC4AC1774ED /* Pods_HCI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HCI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7090576FDEF1BAE4B321F7 /* Pods-HCI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCI.debug.xcconfig"; path = "Target Support Files/Pods-HCI/Pods-HCI.debug.xcconfig"; sourceTree = "<group>"; };
 		A4052A998BBDA8EC05BE1DA5 /* Pods-HCI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCI.release.xcconfig"; path = "Target Support Files/Pods-HCI/Pods-HCI.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				42B7AEEC242250EA00489C46 /* HCConstants.swift */,
+				42B7AEF0242269ED00489C46 /* Networking */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -156,6 +165,7 @@
 		42B2277F242115A0004F3217 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				42B7AEF824226C9300489C46 /* Extension+MoyaResponse.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -163,6 +173,7 @@
 		42B22780242115AD004F3217 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				42B7AEF524226B0C00489C46 /* Error */,
 				428E8113242144C2007FCB8D /* Main */,
 			);
 			path = Models;
@@ -209,6 +220,23 @@
 				42B7AEEE242265E100489C46 /* HCReachability.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		42B7AEF0242269ED00489C46 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				42B7AEF124226A2000489C46 /* HCMoyaProvider.swift */,
+				42B7AEF324226A7A00489C46 /* HCNetworkEvent.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		42B7AEF524226B0C00489C46 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				42B7AEF624226B2A00489C46 /* HCServiceError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		50CE782D70C182D2D991C354 /* Frameworks */ = {
@@ -412,17 +440,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42B7AEF924226C9300489C46 /* Extension+MoyaResponse.swift in Sources */,
 				428E810724211E89007FCB8D /* HCBlogTableViewCell.swift in Sources */,
 				42B2276F2420EDC7004F3217 /* HCViewController.swift in Sources */,
 				42B7AEED242250EA00489C46 /* HCConstants.swift in Sources */,
+				42B7AEF724226B2A00489C46 /* HCServiceError.swift in Sources */,
 				42B7AEEA2421D7ED00489C46 /* HCSampleLoader.swift in Sources */,
 				42B2276B2420EDC7004F3217 /* AppDelegate.swift in Sources */,
 				42B7AEEF242265E100489C46 /* HCReachability.swift in Sources */,
 				428E8115242144D5007FCB8D /* HCMainDataModel.swift in Sources */,
+				42B7AEF424226A7A00489C46 /* HCNetworkEvent.swift in Sources */,
 				428E811224214197007FCB8D /* HCMainViewModel.swift in Sources */,
 				428E810F24213304007FCB8D /* HCProductCollectionViewCell.swift in Sources */,
 				428E810524211E77007FCB8D /* HCProductTableViewCell.swift in Sources */,
 				42B2276D2420EDC7004F3217 /* SceneDelegate.swift in Sources */,
+				42B7AEF224226A2000489C46 /* HCMoyaProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
