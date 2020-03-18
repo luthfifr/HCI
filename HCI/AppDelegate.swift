@@ -15,8 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UINavigationBar.appearance().barTintColor = UIColor(red: 83/255, green: 186/255, blue: 210/255, alpha: 1.0)
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         if #available(iOS 13, *) {
-            //skip anything here if iOS older than v13
+            //skip anything here if iOS v13 or later
         } else {
             let window = UIWindow()
             let mainVC = HCMainViewController()

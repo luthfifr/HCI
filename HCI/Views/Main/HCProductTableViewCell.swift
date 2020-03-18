@@ -57,6 +57,10 @@ extension HCProductTableViewCell {
         if containerView == nil {
             containerView = UIView(frame: .zero)
             containerView.backgroundColor = .white
+            containerView.layer.shadowColor = UIColor.black.cgColor
+            containerView.layer.shadowOpacity = 0.5
+            containerView.layer.shadowOffset = CGSize(width: 0, height: 8)
+            containerView.layer.shadowRadius = 5
 
             if !contentView.subviews.contains(containerView) {
                 contentView.addSubview(containerView)

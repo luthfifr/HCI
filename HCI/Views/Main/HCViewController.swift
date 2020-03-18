@@ -128,6 +128,7 @@ extension HCMainViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell0.selectionStyle = .none
+            cell0.backgroundColor = .clear
             cell = cell0
         case 1:
             guard let cell1 = tableView.dequeueReusableCell(withIdentifier: blogSectionCellID, for: indexPath) as? BlogTVC else { //swiftlint:disable:this line_length
