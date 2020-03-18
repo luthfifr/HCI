@@ -64,7 +64,8 @@ extension HCMainViewModel {
     }
 
     private func getData() {
-        if HCReachability.shared.isNetworkAvailable {
+        isOnline = HCReachability.shared.isNetworkAvailable
+        if isOnline {
             service
                 .getData()
                 .asObservable()
@@ -73,7 +74,6 @@ extension HCMainViewModel {
                     switch event {
                     case .succeeded(let model):
                         self.responseModel = model
-                        self.isOnline = true
                     case .failed(let error):
                         self.uiEvents.onNext(.getDataFailure(error))
                     case .waiting: break
@@ -84,7 +84,6 @@ extension HCMainViewModel {
             if let responseStr = String(data: responseData, encoding: .utf8),
                 let model = HCMainDataModel.deserialize(from: responseStr) {
                 self.responseModel = model
-                self.isOnline = false
             }
         }
     }
