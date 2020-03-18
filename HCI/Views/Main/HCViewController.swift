@@ -11,6 +11,8 @@ import RxSwift
 import SnapKit
 
 class HCMainViewController: UIViewController {
+    typealias Constants = HCConstants.MainVC
+    private let disposeBag = DisposeBag()
 
     typealias ProductTVC = HCProductTableViewCell
     typealias BlogTVC = HCBlogTableViewCell
@@ -20,16 +22,50 @@ class HCMainViewController: UIViewController {
     private let prodSectionCellID = String(describing: ProductTVC.self)
     private let blogSectionCellID = String(describing: BlogTVC.self)
 
+    private var viewModel: HCMainViewModel!
+    private var dataModel: HCMainDataModel? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        viewModel = HCMainViewModel()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        viewModel = HCMainViewModel()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Home Credit Indonesia"
-        view.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1.0)
+        let label = UILabel()
+        label.textColor = UIColor.white
+        label.text = Constants.title
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: label)
+        view.backgroundColor = Constants.backgroundColor
         setupViews()
+        setupEvents()
+        viewModel.viewModelEvents.onNext(.getData)
     }
 }
 
 // MARK: - Private methods
 extension HCMainViewController {
+    private func setupEvents() {
+        viewModel.uiEvents.subscribe(onNext: { [weak self] event in
+            guard let `self` = self else { return }
+            switch event {
+            case .getDataSuccess:
+                self.dataModel = self.viewModel.responseModel
+            case .getDataFailure: break
+            default: break
+            }
+        }).disposed(by: disposeBag)
+    }
+
     private func setupViews() {
         setupTableView()
     }
@@ -62,7 +98,7 @@ extension HCMainViewController {
 // MARK: - UITableViewDataSource
 extension HCMainViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,14 +106,64 @@ extension HCMainViewController: UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return 0
+            guard let dataModel = dataModel,
+                let data = dataModel.data,
+                let blogSectionData = data.first(where: {
+                    guard let section = $0.section else {
+                        return false
+                    }
+                    return section == Constants.articleSectionRawValue
+                }), let items = blogSectionData.items else {
+                return 0
+            }
+            return items.count
         default:
             return 0
         }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 363
+        switch indexPath.section {
+        case 0:
+            return 332
+        case 1:
+            return 200
+        default:
+            return 0
+        }
+    }
+
+    func tableView(_ tableView: UITableView,
+                   titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return nil
+        case 1:
+            guard let dataModel = dataModel,
+                let data = dataModel.data,
+                let blogSectionData = data.first(where: {
+                    guard let section = $0.section else {
+                        return false
+                    }
+                    return section == Constants.articleSectionRawValue
+                }) else {
+                return nil
+            }
+            return blogSectionData.sectionTitle
+        default:
+            return nil
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 0:
+            return 0
+        case 1:
+            return 25
+        default:
+            return 0
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,12 +175,14 @@ extension HCMainViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
             cell0.selectionStyle = .none
+            cell0.backgroundColor = .clear
             cell = cell0
         case 1:
             guard let cell1 = tableView.dequeueReusableCell(withIdentifier: blogSectionCellID, for: indexPath) as? BlogTVC else { //swiftlint:disable:this line_length
                 return UITableViewCell()
             }
-            cell1.selectionStyle = .blue
+            cell1.selectionStyle = .none
+            cell1.backgroundColor = .clear
             cell = cell1
         default:
             break
@@ -107,9 +195,60 @@ extension HCMainViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension HCMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        //codes here
+        switch indexPath.section {
+        case 0:
+            guard let cell = cell as? ProductTVC,
+                let dataModel = dataModel,
+                let data = dataModel.data,
+                let productSectionData = data.first(where: {
+                    guard let section = $0.section else {
+                        return false
+                    }
+                    return section == Constants.productSectionRawValue
+                }) else {
+                return
+            }
+            cell.setData(with: productSectionData)
+        case 1:
+            guard let cell = cell as? BlogTVC,
+                let dataModel = dataModel,
+                let data = dataModel.data,
+                let blogSectionData = data.first(where: {
+                    guard let section = $0.section else {
+                        return false
+                    }
+                    return section == Constants.articleSectionRawValue
+                }),
+                let items = blogSectionData.items else {
+                return
+            }
+            cell.setData(with: items[indexPath.row])
+        default:
+            return
+        }
     }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //codes here
+        guard let dataModel = dataModel,
+            let data = dataModel.data,
+            let blogSectionData = data.first(where: {
+                guard let section = $0.section else {
+                    return false
+                }
+                return section == Constants.articleSectionRawValue
+            }),
+            let items = blogSectionData.items,
+            let strURL = items[indexPath.row].link,
+            let url = URL(string: strURL) else {
+            return
+        }
+        #if DEBUG
+        print("selected URL: \(strURL)")
+        #endif
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url,
+                                      options: [:],
+                                      completionHandler: nil)
+        }
     }
 }

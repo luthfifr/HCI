@@ -10,18 +10,37 @@
 		428E810524211E77007FCB8D /* HCProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428E810424211E77007FCB8D /* HCProductTableViewCell.swift */; };
 		428E810724211E89007FCB8D /* HCBlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428E810624211E89007FCB8D /* HCBlogTableViewCell.swift */; };
 		428E810F24213304007FCB8D /* HCProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428E810D24213304007FCB8D /* HCProductCollectionViewCell.swift */; };
+		428E811224214197007FCB8D /* HCMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428E811124214197007FCB8D /* HCMainViewModel.swift */; };
+		428E8115242144D5007FCB8D /* HCMainDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428E8114242144D5007FCB8D /* HCMainDataModel.swift */; };
 		42B2276B2420EDC7004F3217 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B2276A2420EDC7004F3217 /* AppDelegate.swift */; };
 		42B2276D2420EDC7004F3217 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B2276C2420EDC7004F3217 /* SceneDelegate.swift */; };
 		42B2276F2420EDC7004F3217 /* HCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B2276E2420EDC7004F3217 /* HCViewController.swift */; };
 		42B227742420EDC9004F3217 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B227732420EDC9004F3217 /* Assets.xcassets */; };
 		42B227772420EDC9004F3217 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B227752420EDC9004F3217 /* LaunchScreen.storyboard */; };
+		42B7AEDE2421D07B00489C46 /* HCIUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEDD2421D07B00489C46 /* HCIUnitTests.swift */; };
+		42B7AEE72421D0F400489C46 /* home-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 42B7AEE62421D0F400489C46 /* home-response.json */; };
+		42B7AEEA2421D7ED00489C46 /* HCSampleLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEE92421D7ED00489C46 /* HCSampleLoader.swift */; };
+		42B7AEEB2421F1FF00489C46 /* home-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 42B7AEE62421D0F400489C46 /* home-response.json */; };
+		42B7AEED242250EA00489C46 /* HCConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7AEEC242250EA00489C46 /* HCConstants.swift */; };
 		798726A7440AABD86CD0D55C /* Pods_HCI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677A675A7B87FAC4AC1774ED /* Pods_HCI.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		42B7AEE02421D07B00489C46 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 42B2275F2420EDC7004F3217 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 42B227662420EDC7004F3217;
+			remoteInfo = HCI;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		428E810424211E77007FCB8D /* HCProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCProductTableViewCell.swift; sourceTree = "<group>"; };
 		428E810624211E89007FCB8D /* HCBlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCBlogTableViewCell.swift; sourceTree = "<group>"; };
 		428E810D24213304007FCB8D /* HCProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		428E811124214197007FCB8D /* HCMainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCMainViewModel.swift; sourceTree = "<group>"; };
+		428E8114242144D5007FCB8D /* HCMainDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCMainDataModel.swift; sourceTree = "<group>"; };
 		42B227672420EDC7004F3217 /* HCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B2276A2420EDC7004F3217 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42B2276C2420EDC7004F3217 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,6 +48,12 @@
 		42B227732420EDC9004F3217 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42B227762420EDC9004F3217 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42B227782420EDC9004F3217 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42B7AEDB2421D07B00489C46 /* HCIUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HCIUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		42B7AEDD2421D07B00489C46 /* HCIUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCIUnitTests.swift; sourceTree = "<group>"; };
+		42B7AEDF2421D07B00489C46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42B7AEE62421D0F400489C46 /* home-response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "home-response.json"; sourceTree = "<group>"; };
+		42B7AEE92421D7ED00489C46 /* HCSampleLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCSampleLoader.swift; sourceTree = "<group>"; };
+		42B7AEEC242250EA00489C46 /* HCConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCConstants.swift; sourceTree = "<group>"; };
 		677A675A7B87FAC4AC1774ED /* Pods_HCI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HCI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7090576FDEF1BAE4B321F7 /* Pods-HCI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCI.debug.xcconfig"; path = "Target Support Files/Pods-HCI/Pods-HCI.debug.xcconfig"; sourceTree = "<group>"; };
 		A4052A998BBDA8EC05BE1DA5 /* Pods-HCI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HCI.release.xcconfig"; path = "Target Support Files/Pods-HCI/Pods-HCI.release.xcconfig"; sourceTree = "<group>"; };
@@ -40,6 +65,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				798726A7440AABD86CD0D55C /* Pods_HCI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42B7AED82421D07B00489C46 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +92,15 @@
 		428E810824212372007FCB8D /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				428E811124214197007FCB8D /* HCMainViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		428E8113242144C2007FCB8D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				428E8114242144D5007FCB8D /* HCMainDataModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -68,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				42B227692420EDC7004F3217 /* HCI */,
+				42B7AEDC2421D07B00489C46 /* HCIUnitTests */,
 				42B227682420EDC7004F3217 /* Products */,
 				BA8BD1477B6437358821A636 /* Pods */,
 				50CE782D70C182D2D991C354 /* Frameworks */,
@@ -78,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				42B227672420EDC7004F3217 /* HCI.app */,
+				42B7AEDB2421D07B00489C46 /* HCIUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,6 +128,7 @@
 		42B227692420EDC7004F3217 /* HCI */ = {
 			isa = PBXGroup;
 			children = (
+				42B7AEE82421D7D500489C46 /* Utilities */,
 				42B227782420EDC9004F3217 /* Info.plist */,
 				42B2276A2420EDC7004F3217 /* AppDelegate.swift */,
 				42B2276C2420EDC7004F3217 /* SceneDelegate.swift */,
@@ -102,6 +146,7 @@
 		42B2277E24211525004F3217 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				42B7AEEC242250EA00489C46 /* HCConstants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -116,6 +161,7 @@
 		42B22780242115AD004F3217 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				428E8113242144C2007FCB8D /* Main */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,6 +180,32 @@
 				428E810124211BAB007FCB8D /* Main */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		42B7AEDC2421D07B00489C46 /* HCIUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				42B7AEE52421D08900489C46 /* SampleResponses */,
+				42B7AEDD2421D07B00489C46 /* HCIUnitTests.swift */,
+				42B7AEDF2421D07B00489C46 /* Info.plist */,
+			);
+			path = HCIUnitTests;
+			sourceTree = "<group>";
+		};
+		42B7AEE52421D08900489C46 /* SampleResponses */ = {
+			isa = PBXGroup;
+			children = (
+				42B7AEE62421D0F400489C46 /* home-response.json */,
+			);
+			path = SampleResponses;
+			sourceTree = "<group>";
+		};
+		42B7AEE82421D7D500489C46 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				42B7AEE92421D7ED00489C46 /* HCSampleLoader.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		50CE782D70C182D2D991C354 /* Frameworks */ = {
@@ -177,6 +249,24 @@
 			productReference = 42B227672420EDC7004F3217 /* HCI.app */;
 			productType = "com.apple.product-type.application";
 		};
+		42B7AEDA2421D07B00489C46 /* HCIUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42B7AEE42421D07B00489C46 /* Build configuration list for PBXNativeTarget "HCIUnitTests" */;
+			buildPhases = (
+				42B7AED72421D07B00489C46 /* Sources */,
+				42B7AED82421D07B00489C46 /* Frameworks */,
+				42B7AED92421D07B00489C46 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				42B7AEE12421D07B00489C46 /* PBXTargetDependency */,
+			);
+			name = HCIUnitTests;
+			productName = HCIUnitTests;
+			productReference = 42B7AEDB2421D07B00489C46 /* HCIUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -189,6 +279,10 @@
 				TargetAttributes = {
 					42B227662420EDC7004F3217 = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					42B7AEDA2421D07B00489C46 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 42B227662420EDC7004F3217;
 					};
 				};
 			};
@@ -206,6 +300,7 @@
 			projectRoot = "";
 			targets = (
 				42B227662420EDC7004F3217 /* HCI */,
+				42B7AEDA2421D07B00489C46 /* HCIUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -215,8 +310,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42B7AEEB2421F1FF00489C46 /* home-response.json in Resources */,
 				42B227772420EDC9004F3217 /* LaunchScreen.storyboard in Resources */,
 				42B227742420EDC9004F3217 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42B7AED92421D07B00489C46 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42B7AEE72421D0F400489C46 /* home-response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,14 +411,34 @@
 			files = (
 				428E810724211E89007FCB8D /* HCBlogTableViewCell.swift in Sources */,
 				42B2276F2420EDC7004F3217 /* HCViewController.swift in Sources */,
+				42B7AEED242250EA00489C46 /* HCConstants.swift in Sources */,
+				42B7AEEA2421D7ED00489C46 /* HCSampleLoader.swift in Sources */,
 				42B2276B2420EDC7004F3217 /* AppDelegate.swift in Sources */,
+				428E8115242144D5007FCB8D /* HCMainDataModel.swift in Sources */,
+				428E811224214197007FCB8D /* HCMainViewModel.swift in Sources */,
 				428E810F24213304007FCB8D /* HCProductCollectionViewCell.swift in Sources */,
 				428E810524211E77007FCB8D /* HCProductTableViewCell.swift in Sources */,
 				42B2276D2420EDC7004F3217 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		42B7AED72421D07B00489C46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42B7AEDE2421D07B00489C46 /* HCIUnitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		42B7AEE12421D07B00489C46 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 42B227662420EDC7004F3217 /* HCI */;
+			targetProxy = 42B7AEE02421D07B00489C46 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		42B227752420EDC9004F3217 /* LaunchScreen.storyboard */ = {
@@ -480,6 +604,48 @@
 			};
 			name = Release;
 		};
+		42B7AEE22421D07B00489C46 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 672G34E675;
+				INFOPLIST_FILE = HCIUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.standalone.luthfi.HCIUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HCI.app/HCI";
+			};
+			name = Debug;
+		};
+		42B7AEE32421D07B00489C46 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 672G34E675;
+				INFOPLIST_FILE = HCIUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.standalone.luthfi.HCIUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HCI.app/HCI";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -497,6 +663,15 @@
 			buildConfigurations = (
 				42B2277C2420EDC9004F3217 /* Debug */,
 				42B2277D2420EDC9004F3217 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42B7AEE42421D07B00489C46 /* Build configuration list for PBXNativeTarget "HCIUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42B7AEE22421D07B00489C46 /* Debug */,
+				42B7AEE32421D07B00489C46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
