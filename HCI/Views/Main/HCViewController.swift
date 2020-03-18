@@ -94,7 +94,7 @@ extension HCMainViewController {
 // MARK: - UITableViewDataSource
 extension HCMainViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -102,7 +102,17 @@ extension HCMainViewController: UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return 0
+            guard let dataModel = dataModel,
+                let data = dataModel.data,
+                let blogSectionData = data.first(where: {
+                    guard let section = $0.section else {
+                        return false
+                    }
+                    return section == "articles"
+                }), let items = blogSectionData.items else {
+                return 0
+            }
+            return items.count
         default:
             return 0
         }
@@ -114,6 +124,39 @@ extension HCMainViewController: UITableViewDataSource {
             return 332
         case 1:
             return 200
+        default:
+            return 0
+        }
+    }
+
+    func tableView(_ tableView: UITableView,
+                   titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return nil
+        case 1:
+            guard let dataModel = dataModel,
+                let data = dataModel.data,
+                let blogSectionData = data.first(where: {
+                    guard let section = $0.section else {
+                        return false
+                    }
+                    return section == "articles"
+                }) else {
+                return nil
+            }
+            return blogSectionData.sectionTitle
+        default:
+            return nil
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 0:
+            return 0
+        case 1:
+            return 25
         default:
             return 0
         }
@@ -134,7 +177,8 @@ extension HCMainViewController: UITableViewDataSource {
             guard let cell1 = tableView.dequeueReusableCell(withIdentifier: blogSectionCellID, for: indexPath) as? BlogTVC else { //swiftlint:disable:this line_length
                 return UITableViewCell()
             }
-            cell1.selectionStyle = .blue
+            cell1.selectionStyle = .none
+            cell1.backgroundColor = .clear
             cell = cell1
         default:
             break
@@ -162,14 +206,38 @@ extension HCMainViewController: UITableViewDelegate {
             }
             cell.setData(with: productSectionData)
         case 1:
-            guard let cell = cell as? BlogTVC else {
+            guard let cell = cell as? BlogTVC,
+                let dataModel = dataModel,
+                let data = dataModel.data,
+                let blogSectionData = data.first(where: {
+                    guard let section = $0.section else {
+                        return false
+                    }
+                    return section == "articles"
+                }),
+                let items = blogSectionData.items else {
                 return
             }
+            cell.setData(with: items[indexPath.row])
         default:
             return
         }
     }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //codes here
+        guard let dataModel = dataModel,
+            let data = dataModel.data,
+            let blogSectionData = data.first(where: {
+                guard let section = $0.section else {
+                    return false
+                }
+                return section == "articles"
+            }),
+            let items = blogSectionData.items else {
+            return
+        }
+        #if DEBUG
+        print("selected URL: \(items[indexPath.row].link ?? String())")
+        #endif
     }
 }

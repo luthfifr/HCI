@@ -14,6 +14,8 @@ class HCBlogTableViewCell: UITableViewCell {
 
     private var titleView: UIView!
     private var titleLabel: UILabel!
+    private var bannerImgView: UIImageView!
+    private var containerView: UIView!
 
     // MARK: - Initialization
     convenience init() {
@@ -32,8 +34,52 @@ class HCBlogTableViewCell: UITableViewCell {
 
     // MARK: - Setup methods
     private func setupViews() {
+        setupContainerView()
+        setupBannerImgView()
         setupTitleView()
         setupTitleLabel()
+    }
+
+    private func setupContainerView() {
+        if containerView == nil {
+            containerView = UIView(frame: .zero)
+            containerView.backgroundColor = .white
+            containerView.layer.shadowColor = UIColor.black.cgColor
+            containerView.layer.shadowOpacity = 0.3
+            containerView.layer.shadowOffset = CGSize(width: 0, height: 8)
+            containerView.layer.shadowRadius = 2.5
+
+            if !contentView.subviews.contains(containerView) {
+                contentView.addSubview(containerView)
+            }
+
+            containerView.snp.makeConstraints({ make in
+                make.leading
+                    .equalTo(contentView.snp.leading).offset(16)
+                make.trailing
+                    .equalTo(contentView.snp.trailing).offset(-16)
+                make.top
+                    .equalTo(contentView.snp.top).offset(16)
+                make.bottom
+                    .equalTo(contentView.snp.bottom).offset(-16)
+            })
+        }
+    }
+
+    private func setupBannerImgView() {
+        if bannerImgView == nil {
+            bannerImgView = UIImageView(frame: .zero)
+            bannerImgView.contentMode = .scaleAspectFit
+            bannerImgView.backgroundColor = .green
+
+            if !containerView.subviews.contains(bannerImgView) {
+                containerView.addSubview(bannerImgView)
+            }
+
+            bannerImgView.snp.makeConstraints({ make in
+                make.edges.equalToSuperview()
+            })
+        }
     }
 
     private func setupTitleView() {
@@ -42,8 +88,8 @@ class HCBlogTableViewCell: UITableViewCell {
             titleView.translatesAutoresizingMaskIntoConstraints = false
             titleView.backgroundColor = .white
 
-            if !contentView.subviews.contains(titleView) {
-                contentView.addSubview(titleView)
+            if !containerView.subviews.contains(titleView) {
+                containerView.addSubview(titleView)
             }
 
             titleView.snp.makeConstraints({ make in
@@ -78,11 +124,11 @@ class HCBlogTableViewCell: UITableViewCell {
 
 // MARK: - Public methods
 extension HCBlogTableViewCell {
-    func setData() {
-        imageView?.sd_setImage(with: nil,
+    func setData(with data: HCMainDataModel.HCItemsDataModel) {
+        bannerImgView.sd_setImage(with: URL(string: data.image ?? String()),
                                placeholderImage: nil,
                                options: [.highPriority, .waitStoreCache, .continueInBackground],
                                context: nil)
-        titleLabel.text = "Article title"
+        titleLabel.text = data.name ?? "Article title"
     }
 }
