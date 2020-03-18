@@ -28,6 +28,7 @@ enum HCMainViewModelEvent: Equatable {
 protocol HCMainViewModelType {
     var uiEvents: PublishSubject<HCMainViewModelEvent> { get }
     var viewModelEvents: PublishSubject<HCMainViewModelEvent> { get }
+    var responseModel: HCMainDataModel? { get }
 }
 
 final class HCMainViewModel: HCMainViewModelType {
@@ -35,6 +36,12 @@ final class HCMainViewModel: HCMainViewModelType {
 
     let uiEvents = PublishSubject<HCMainViewModelEvent>()
     let viewModelEvents = PublishSubject<HCMainViewModelEvent>()
+    var responseModel: HCMainDataModel? {
+        didSet {
+            print(self.responseModel!)
+            self.uiEvents.onNext(.getDataSuccess)
+        }
+    }
 
     init() {
         setupEvents()
@@ -55,6 +62,11 @@ extension HCMainViewModel {
     }
 
     private func getData() {
-        //codes here
+        //for development purpose
+        let responseData = HCSampleLoader.loadResponse(file: "home-response")
+        if let responseStr = String(data: responseData, encoding: .utf8),
+            let model = HCMainDataModel.deserialize(from: responseStr) {
+            self.responseModel = model
+        }
     }
 }

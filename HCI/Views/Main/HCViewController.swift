@@ -20,14 +20,19 @@ class HCMainViewController: UIViewController {
 
     private let prodSectionCellID = String(describing: ProductTVC.self)
     private let blogSectionCellID = String(describing: BlogTVC.self)
-    
+
     private var viewModel: HCMainViewModel!
-    
+    private var dataModel: HCMainDataModel? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
     init() {
         super.init(nibName: nil, bundle: nil)
         viewModel = HCMainViewModel()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         viewModel = HCMainViewModel()
@@ -39,21 +44,24 @@ class HCMainViewController: UIViewController {
         view.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1.0)
         setupViews()
         setupEvents()
+        viewModel.viewModelEvents.onNext(.getData)
     }
 }
 
 // MARK: - Private methods
 extension HCMainViewController {
     private func setupEvents() {
-        viewModel.uiEvents.subscribe(onNext: { event in
+        viewModel.uiEvents.subscribe(onNext: { [weak self] event in
+            guard let `self` = self else { return }
             switch event {
-            case .getDataSuccess: break
+            case .getDataSuccess:
+                self.dataModel = self.viewModel.responseModel
             case .getDataFailure: break
             default: break
             }
         }).disposed(by: disposeBag)
     }
-    
+
     private func setupViews() {
         setupTableView()
     }
@@ -103,7 +111,7 @@ extension HCMainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 300
+            return 332
         case 1:
             return 200
         default:
@@ -140,9 +148,18 @@ extension HCMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            guard let cell = cell as? ProductTVC else {
+            guard let cell = cell as? ProductTVC,
+                let dataModel = dataModel,
+                let data = dataModel.data,
+                let productSectionData = data.first(where: {
+                    guard let section = $0.section else {
+                        return false
+                    }
+                    return section == "products"
+                }) else {
                 return
             }
+            cell.setData(with: productSectionData)
         case 1:
             guard let cell = cell as? BlogTVC else {
                 return

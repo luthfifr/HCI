@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HCProductCollectionViewCell: UICollectionViewCell {
     private var stackView: UIStackView!
@@ -27,6 +28,43 @@ class HCProductCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupViews()
+    }
+}
+
+// MARK: - Public methods
+extension HCProductCollectionViewCell {
+    func setData(with data: HCMainDataModel.HCItemsDataModel) {
+        let productName = data.name ?? "Product Name"
+        label.text = productName.replacingOccurrences(of: " ", with: "\n")
+        imgView.sd_setImage(with: URL(string: data.image ?? String())) { [weak self] image, error, _, _ in
+            guard let `self` = self else { return }
+            if let error = error {
+                #if DEBUG
+                print("download product image error: \(error.localizedDescription)")
+                #endif
+            }
+
+            if image == nil {
+                var iconImage: UIImage?
+                switch productName {
+                case "Pembiayaan Handphone":
+                    iconImage = UIImage(named: "icon-hp")
+                case "Pembiayaan Kamera":
+                    iconImage = UIImage(named: "icon-camera")
+                case "Pembiayaan TV":
+                    iconImage = UIImage(named: "icon-tv")
+                case "Pembiayaan Laptop":
+                    iconImage = UIImage(named: "icon-laptop")
+                case "Pembiayaan Elektronik":
+                    iconImage = UIImage(named: "icon-refrigerator")
+                case "Pembiayaan Furnitur":
+                    iconImage = UIImage(named: "icon-sofa")
+                default:
+                    iconImage = UIImage(named: "icon-hci")
+                }
+                self.imgView.image = iconImage
+            }
+        }
     }
 }
 
@@ -60,8 +98,8 @@ extension HCProductCollectionViewCell {
     private func setupImgView() {
         if imgView == nil {
             imgView = UIImageView(frame: .zero)
-            imgView.backgroundColor = .lightGray
-            imgView.contentMode = .scaleAspectFit
+            imgView.contentMode = .center
+            imgView.tintColor = .black
         }
     }
 
