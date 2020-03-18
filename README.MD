@@ -8,7 +8,7 @@ This repo is the answer of Home Credit Indonesia take home test.
 
 ### Check List:
 #### Implementation Guidelines:
-- [ ] When application open, show progress indicator while getting the data from API. You can use progress bar, progress dialog or custom animation.
+- [x] When application open, show progress indicator while getting the data from API. You can use progress bar, progress dialog or custom animation.
 - [x] If data is successfully retrieved, show the data based on design above. If any error occurs, show a toast or dialog indicating there is a connection error.
 - [x] When one of the Grid item or Article is clicked, open that item link (from API) on the browser.
 #### Mandatory Assessment Criteria:
