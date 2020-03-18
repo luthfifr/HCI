@@ -12,7 +12,7 @@ This repo is the answer of Home Credit Indonesia take home test.
 - [x] If data is successfully retrieved, show the data based on design above. If any error occurs, show a toast or dialog indicating there is a connection error.
 - [x] When one of the Grid item or Article is clicked, open that item link (from API) on the browser.
 #### Mandatory Assessment Criteria:
-- [ ] Min. iOS 10 target support.
+- [x] Min. iOS 10 target support.
 - [x] Written in Swift 5 or latest.
 - [x] Free to use any 3rd party library.
 - [x] Display each section (Grid, Banner) of view in vertical order, based on API result order.
