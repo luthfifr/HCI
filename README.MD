@@ -20,5 +20,5 @@ This repo is the answer of Home Credit Indonesia take home test.
 - [x] Code must be clean, don't let unnecessary code left behind.
 #### Mandatory Assessment Criteria for Senior Level:
 - [x] Use native standard or more advance to create UI.
-- [ ] Covered by Unit Test (Integration Test & UI Test will be very great).
+- [x] Covered by Unit Test (Integration Test & UI Test will be very great).
 - [x] Use pattern / architecture that you're most familiar and mastered.
