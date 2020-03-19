@@ -1,0 +1,65 @@
+{
+    "data" : [
+        {
+            "section" : "articles",
+            "section_title" : "Our Blog",
+            "items" : [
+                {
+                    "article_title" : "6 Fakta Seru Home Credit Indonesia",
+                    "article_image" : "https://assets-us-01.kc-usercontent.com/a7507759-f4f5-0038-8fff-c1db251108c1/3ead5941-4469-4d45-9a7f-14cd0449fec2/Big-Teaser-7-Juli.jpg?w=1728",
+                    "link" : "https://www.homecredit.co.id/Blog/Pembiayaan-Konsumen/Juli-2017/6-Fakta-Seru-Home-Credit-Indonesia"
+                },
+                {
+                    "article_title" : "7 Tempat Wisata di Hongkong yang Paling Populer dan Direkomendasikan",
+                    "article_image" : "https://www.homecredit.co.id/getattachment/eb5f15dc-45f9-431e-a1b7-e7c86ef7feaf/attachment.aspx",
+                    "link" : "https://www.homecredit.co.id/Blog/Tips/Desember-2018/7-Tempat-Wisata-di-Hongkong-yang-Paling-Populer-da"
+                },
+                {
+                    "article_title" : "10 Cara Mengatasi Laptop Lemot Paling Mudah",
+                    "article_image" : "https://assets-us-01.kc-usercontent.com/a7507759-f4f5-0038-8fff-c1db251108c1/ee2f40ee-1e2a-4031-918a-8b30d66ea4c1/solusi-laptop-lemot-paling-mudah_banner.jpg?w=1728",
+                    "link" : "https://www.homecredit.co.id/Tips/10-Cara-Mengatasi-Laptop-Lemot-Paling-Mudah"
+                },
+                {
+                    "article_title" : "3 Cara Mudah Download Video di Instagram",
+                    "article_image" : "https://assets-us-01.kc-usercontent.com/a7507759-f4f5-0038-8fff-c1db251108c1/e9c0a557-80c6-4f46-92dc-9ace48a29f95/Mudahnya-Download-Video-di-Instagram.jpg?w=1728",
+                    "link" : "https://www.homecredit.co.id/Blog/3-Cara-Mudah-Download-Video-di-Instagram"
+                }
+            ]
+        },
+        {
+            "section"  : "products",
+            "items" : [
+                {
+                    "product_name" : "Pembiayaan Handphone",
+                    "product_image" : "https://www.homecredit.co.id/HCID/media/images/Commodity/mobile-phone-hover-grey.png?ext=.png",
+                    "link" : "https://www.homecredit.co.id/Konsumen/Produk/Kredit-Handphone"
+                },
+                {
+                    "product_name" : "Pembiayaan Kamera",
+                    "product_image" : "https://www.homecredit.co.id/HCID/media/images/Commodity/camera-hover-grey.png?ext=.png",
+                    "link" : "https://www.homecredit.co.id/Customers/Products/Kredit-Kamera"
+                },
+                {
+                    "product_name" : "Pembiayaan TV",
+                    "product_image" : "https://www.homecredit.co.id/HCID/media/images/Commodity/television-hover-grey.png?ext=.png",
+                    "link" : "https://www.homecredit.co.id/Konsumen/Produk/Pembiayaan-TV"
+                },
+                {
+                    "product_name" : "Pembiayaan Laptop",
+                    "product_image" : "https://www.homecredit.co.id/HCID/media/images/Commodity/laptop-hover-grey.png?ext=.png",
+                    "link" : "https://www.homecredit.co.id/Konsumen/Produk/Pembiayaan-Laptop"
+                },
+                {
+                    "product_name" : "Pembiayaan Elektronik",
+                    "product_image" : "https://www.homecredit.co.id/HCID/media/images/Commodity/consumer-durable-hover-grey.png?ext=.png",
+                    "link" : "https://www.homecredit.co.id/Konsumen/Produk/Pembiayaan-Elektronik"
+                },
+                {
+                    "product_name" : "Pembiayaan Furnitur",
+                    "product_image" : "https://www.homecredit.co.id/HCID/media/images/Commodity/furniture-hover-grey.png?ext=.png",
+                    "link" : "https://www.homecredit.co.id/Konsumen/Produk/Pembiayaan-Furnitur"
+                }
+            ]
+        }
+    ]
+}
