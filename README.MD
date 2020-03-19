@@ -22,3 +22,7 @@ This repo is the answer of Home Credit Indonesia take home test.
 - [x] Use native standard or more advance to create UI.
 - [x] Covered by Unit Test (Integration Test & UI Test will be very great).
 - [x] Use pattern / architecture that you're most familiar and mastered.
+
+###Screenshots:
+![](homeScreen.png)
+![](loadingScreen.png)
