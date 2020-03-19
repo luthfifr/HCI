@@ -32,8 +32,8 @@ final class HCMainDataModelTests: XCTestCase {
     }
 
     func testSectionTitleNotNil() {
-        let sectionTitle = responseData.data?.first?.sectionTitle ?? String()
-        XCTAssertNotEqual(sectionTitle, String())
+        let sectionTitle = responseData.data?.first?.sectionTitle
+        XCTAssertNotNil(sectionTitle)
     }
 
     func testSectionTitleValue() {
@@ -77,7 +77,7 @@ final class HCMainDataModelTests: XCTestCase {
         XCTAssertEqual(item?.productImage ?? String(), "https://www.homecredit.co.id/HCID/media/images/Commodity/mobile-phone-hover-grey.png?ext=.png") //swiftlint:disable:this line_length
     }
 
-    func testProductImageValidity() {
+    func testProductImageURLValidity() {
         let productSection = responseData
             .data?.filter({ ($0.section ?? String()) == "products"})
         let item = productSection?.first?.items?.first

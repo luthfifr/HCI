@@ -25,8 +25,6 @@ end
 
 def hciTestPods
     inherit! :search_paths # Required for not double-linking libraries in the app and test targets.+
-    pod 'Quick', '~> 2.0'
-    pod 'Nimble', '~> 8.0'
     pod 'RxTest'
 end
 
