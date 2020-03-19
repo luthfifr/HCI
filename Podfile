@@ -1,6 +1,10 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
+use_frameworks!
+
+inhibit_all_warnings!
+
 def commonPods
     inherit! :search_paths # Required for not double-linking libraries in the app and test targets.+
     pod 'RxSwift'
@@ -21,26 +25,18 @@ end
 
 def hciTestPods
     inherit! :search_paths # Required for not double-linking libraries in the app and test targets.+
-    pod 'Quick'
-    pod 'Nimble'
+    pod 'Quick', '~> 2.0'
+    pod 'Nimble', '~> 8.0'
+    pod 'RxTest'
 end
 
 target 'HCI' do
-  use_frameworks!
-
-  inhibit_all_warnings!
-
   # Pods for HCI
     commonPods
     hciPods
-end
 
-target 'HCIUnitTests' do
-   use_frameworks!
-
-   inhibit_all_warnings!
-
-  # Pods for HCIUnitTests
-    commonPods
-    hciTestPods
+    target 'HCIUnitTests' do
+       # Pods for HCIUnitTests
+         hciTestPods
+    end
 end

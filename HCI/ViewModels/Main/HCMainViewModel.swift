@@ -34,7 +34,7 @@ protocol HCMainViewModelType {
 
 final class HCMainViewModel: HCMainViewModelType {
     private let disposeBag = DisposeBag()
-    private let service = HCMainService()
+    private let service: HCMainService!
 
     let uiEvents = PublishSubject<HCMainViewModelEvent>()
     let viewModelEvents = PublishSubject<HCMainViewModelEvent>()
@@ -46,6 +46,12 @@ final class HCMainViewModel: HCMainViewModelType {
     var isOnline = false
 
     init() {
+        self.service = HCMainService()
+        setupEvents()
+    }
+
+    init(service: HCMainService) {
+        self.service = service
         setupEvents()
     }
 }
